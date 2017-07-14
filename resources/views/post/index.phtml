@@ -1,0 +1,41 @@
+<h1>Welcome</h1>
+<p><?php echo $message; ?></p>
+
+<form method="post" action="<?php echo url('/home/upload'); ?>" enctype="multipart/form-data">
+    <input type="file" name="file" id="file">
+    <button type="submit" class="btn">Submit</button>
+</form>
+
+<br><br>
+
+<form method="post" action="<?php echo url('/home/submit'); ?>">
+    <fieldset><input type="text" name="name" id="name"></fieldset>
+    <fieldset><textarea name="context" id="context"></textarea></fieldset>
+    <fieldset><button type="submit" class="btn">Submit</button></fieldset>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Context</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach($posts as $post) {
+        ?>
+        <tr>
+            <td><?php echo $post['id']; ?></td>
+            <td><?php echo $post['name']; ?></td>
+            <td><?php echo $post['context']; ?></td>
+            <td><a href="<?php echo url('/home/delete?id=' . $post['id']); ?>">Delete</a></td>
+            <td><a href="<?php echo url('/home/edit?id=' . $post['id']); ?>">Edit</a></td>
+        </tr>
+    <?php
+    }
+    ?>
+    </tbody>
+</table>

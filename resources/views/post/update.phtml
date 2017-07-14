@@ -1,0 +1,6 @@
+<form method="post" action="<?php echo url('/home/update'); ?>">
+    <input type="text" style="display: none;" value="<?php echo $post['id']; ?>" name="id">
+    <fieldset><input type="text" name="name" id="name" value="<?php echo $post['name']; ?>"></fieldset>
+    <fieldset><textarea name="context" id="context"><?php echo $post['context']; ?></textarea></fieldset>
+    <fieldset><button type="submit" class="btn">Submit</button></fieldset>
+</form>
